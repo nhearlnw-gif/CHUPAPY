@@ -333,7 +333,7 @@ const App = () => {
         margin-top: 2rem;
         text-align: left;
         line-height: 1.8;
-        animation: fadeIn 0.5s ease-in-out;
+        animation: fadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
