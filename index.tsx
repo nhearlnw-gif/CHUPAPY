@@ -48,13 +48,13 @@ const App = () => {
       📌 สรุปภาพรวมดวง
       (1–2 บรรทัด)`;
 
-    const contents = `วันเดือนปีเกิดของข้าพเจ้าคือ: ${birthDate}\nคำถามของข้าพเจ้าคือ: "${question}"`;
+    const userPrompt = `วันเดือนปีเกิดของข้าพเจ้าคือ: ${birthDate}\nคำถามของข้าพเจ้าคือ: "${question}"`;
 
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await ai.models.generateContent({
         model: "gemini-2.5-flash",
-        contents: contents,
+        contents: [{ role: 'user', parts: [{ text: userPrompt }] }],
         config: {
             systemInstruction: systemInstruction,
         }
